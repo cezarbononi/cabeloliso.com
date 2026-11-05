@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- aplica o tema salvo antes da primeira pintura (evita piscar) -->
+    <script>
+      (function (d) {
+        var t
+        try { t = localStorage.getItem('cl-theme') } catch (e) {}
+        d.dataset.theme = t === 'light' || t === 'dark' ? t : 'dark'
+      })(document.documentElement)
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Cabeloliso.com — Alisamento definitivo sem formol</title>
+    <meta name="description" content="Salão Cabeloliso.com, no Butantã (SP): alisamento definitivo com tioglicolato de MEA personalizado, sem formol. Desde 2009." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" href="./images/logo-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tipografia do conceito Graphite Immersion: Syne (títulos) + Inter Tight (textos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

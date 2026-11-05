@@ -20,6 +20,17 @@ export function Footer() {
       <p className="text-xs text-muted">
         © {new Date().getFullYear()} {business.name} · {business.address.street}, {business.address.district}, {business.address.city}
       </p>
+      <p className="text-xs text-muted">
+        Site criado por{' '}
+        <a
+          href="https://www.avellen.com.br/"
+          target="_blank"
+          rel="noopener"
+          className="font-semibold tracking-[0.18em] text-text uppercase underline-offset-4 transition-colors hover:text-fg hover:underline"
+        >
+          Avellen
+        </a>
+      </p>
     </footer>
   )
 }

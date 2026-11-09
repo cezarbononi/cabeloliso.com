@@ -58,7 +58,6 @@ export const hero = {
   title: 'Liso 100%.',
   titleAccent: 'Todo santo dia.',
   lead: 'Alisamento definitivo com tioglicolato de MEA, personalizado para cada tipo de cabelo. Sem formol e com um liso duradouro na parte tratada.',
-  caption: 'Tioglicolato de MEA · Sem formol',
 }
 
 export const method = {
@@ -144,6 +143,28 @@ export const expert = {
     { value: '9', label: 'países com salões parceiros' },
   ],
   signature: 'Uma especialidade. Um propósito.',
+}
+
+export const products = {
+  eyebrow: 'Outras criações do Renildo',
+  title: 'Compactação Hot Turbo.',
+  lead: 'Dois produtos desenvolvidos por Renildo Ferreira para a linha Compactação Hot Turbo.',
+  items: [
+    {
+      name: 'Turbo Protect',
+      detail: 'Creme hidratante protetor · 1 L',
+      image: 'images/turbo-protect.png',
+      alt: 'Frasco branco Turbo Protect, creme hidratante protetor da Compactação Hot Turbo.',
+      href: wa('5511982063088', 'Olá! Gostaria de saber mais sobre o Turbo Protect.'),
+    },
+    {
+      name: 'Capa Compactação',
+      detail: 'Hot Turbo',
+      image: 'images/capa-compactacao.png',
+      alt: 'Uma capa dourada Compactação Hot Turbo, representando o par espelhado.',
+      href: wa('5511982063088', 'Olá! Gostaria de saber mais sobre a Capa Compactação Hot Turbo.'),
+    },
+  ],
 }
 
 // História contada pelo próprio Renildo (fonte: renildoferreira.com.br/biografia, com revisão leve de texto)

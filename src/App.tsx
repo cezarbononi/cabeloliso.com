@@ -1,4 +1,4 @@
-import { MotionConfig } from 'motion/react'
+import { MotionConfig, useScroll, useTransform } from 'motion/react'
 import { useTheme } from './hooks/useTheme'
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
@@ -13,6 +13,7 @@ import { Hero } from './components/sections/Hero'
 import { Method } from './components/sections/Method'
 import { Results } from './components/sections/Results'
 import { Expert } from './components/sections/Expert'
+import { Products } from './components/sections/Products'
 import { Team } from './components/sections/Team'
 import { Gallery } from './components/sections/Gallery'
 import { Courses } from './components/sections/Courses'
@@ -22,13 +23,16 @@ import { transitions } from './data/content'
 
 export default function App() {
   const { theme, toggle } = useTheme()
+  const { scrollYProgress } = useScroll({ trackContentSize: true })
+  // Fractional layout pixels can leave the browser just shy of 1 at the bottom.
+  const hairProgress = useTransform(scrollYProgress, (value) => value >= 0.9999 ? 1 : Math.max(0, value))
   return (
     // reducedMotion="user": quem pede menos movimento no sistema vê os elementos sem animação de entrada
     <MotionConfig reducedMotion="user">
       <IntroProvider>
       <SmoothScroll />
-      <ScrollProgress />
-      <WavesBackground />
+      <ScrollProgress progress={hairProgress} />
+      <WavesBackground progress={hairProgress} />
       <Header theme={theme} onToggleTheme={toggle} />
       <main>
         <Hero />
@@ -37,6 +41,7 @@ export default function App() {
         <Results />
         <ScrollStatement eyebrow={transitions.statement.eyebrow} text={transitions.statement.text} />
         <Expert />
+        <Products />
         <Gallery />
         <Team />
         <Faq />

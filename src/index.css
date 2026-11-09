@@ -16,6 +16,13 @@
   --c-text: #e8e8e8;
   --c-muted: #a3a3a3;
   --c-accent: #c0c0c0;
+  --hair-shadow: #666a71;
+  --hair-highlight: #d6d8dd;
+  --hair-opacity: 0.48;
+  --product-shadow: rgb(255 255 255 / 0.52);
+  --product-shadow-soft: rgb(255 255 255 / 0.18);
+  --product-cap-glow: rgb(255 255 255 / 0.28);
+  --product-stage: color-mix(in srgb, #fff 4%, transparent);
   --glass-tint: rgb(0 0 0 / 0.38);
   --glass-edge: rgb(255 255 255 / 0.4);
   --chrome: linear-gradient(115deg, #5e5e5e 0%, #f4f4f4 16%, #8c8c8c 30%, #ffffff 44%, #6f6f6f 58%, #e8e8e8 74%, #9a9a9a 88%, #d9d9d9 100%);
@@ -31,6 +38,13 @@
   --c-text: #202020;
   --c-muted: #595959;
   --c-accent: #484848;
+  --hair-shadow: #9b9da2;
+  --hair-highlight: #454950;
+  --hair-opacity: 0.38;
+  --product-shadow: rgb(0 0 0 / 0.24);
+  --product-shadow-soft: rgb(0 0 0 / 0.07);
+  --product-cap-glow: rgb(0 0 0 / 0.05);
+  --product-stage: color-mix(in srgb, #000 6%, transparent);
   --glass-tint: rgb(255 255 255 / 0.55);
   --glass-edge: rgb(255 255 255 / 0.95);
   --chrome: linear-gradient(115deg, #000 0%, #4a4a4a 16%, #111 30%, #6a6a6a 44%, #1a1a1a 58%, #555 74%, #000 88%, #333 100%);
@@ -69,6 +83,7 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
     transition: background-color 0.6s var(--ease-glass), color 0.6s var(--ease-glass);
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
   }
   ::selection {
     background: var(--c-accent);
@@ -81,6 +96,99 @@
 }
 
 @layer components {
+  /* Mechas nas bordas: o centro fica livre para leitura. */
+  .hair-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hair-background__lock {
+    position: absolute;
+    top: -12%;
+    height: 125%;
+    width: clamp(180px, 24vw, 370px);
+    opacity: var(--hair-opacity);
+  }
+  .hair-background__lock--left {
+    left: clamp(-140px, -8vw, -50px);
+    mask-image: linear-gradient(90deg, #000 20%, transparent 100%);
+    transform: rotate(-8deg);
+  }
+  .hair-background__lock--right {
+    right: clamp(-120px, -6vw, -35px);
+    mask-image: linear-gradient(270deg, #000 25%, transparent 100%);
+    transform: rotate(8deg);
+  }
+  .hair-background__strands { display: block; width: 100%; height: 100%; }
+  .hair-progress {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 30;
+    padding: 10px 24px calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid color-mix(in srgb, var(--c-fg) 12%, transparent);
+    background: color-mix(in srgb, var(--c-bg) 94%, transparent);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+  .hair-progress__inner {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) 56px;
+    align-items: center;
+    gap: 32px;
+    max-width: 1320px;
+    margin: auto;
+  }
+  .hair-progress__intro { display: grid; gap: 3px; }
+  .hair-progress__eyebrow {
+    color: var(--c-fg);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .hair-progress__caption { color: var(--c-muted); font-size: 11px; }
+  .hair-progress__strands { display: block; width: 100%; height: 42px; }
+  .hair-progress__stages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--c-muted);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .hair-progress__stages > span { display: flex; align-items: center; gap: 6px; }
+  .hair-progress__stages [data-active='true'] { color: var(--c-fg); }
+  .hair-progress__dot { width: 4px; height: 4px; border: 1px solid currentColor; border-radius: 50%; }
+  [data-active='true'] > .hair-progress__dot,
+  [data-complete='true'] > .hair-progress__dot { background: currentColor; }
+  .hair-progress__value {
+    justify-self: end;
+    color: var(--c-fg);
+    font-size: 22px;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+  }
+  .hair-progress__value > span { margin-left: 3px; color: var(--c-muted); font-size: 11px; }
+  @media (min-width: 768px) and (max-width: 1099px) {
+    .hair-progress__inner { grid-template-columns: 84px minmax(0, 1fr) 48px; gap: 24px; }
+    .hair-progress__caption { display: none; }
+  }
+  @media (max-width: 767px) {
+    .hair-background__lock { width: 180px; opacity: calc(var(--hair-opacity) * 0.7); }
+    .hair-background__lock--left { left: -110px; }
+    .hair-background__lock--right { right: -105px; }
+    .hair-progress { padding: 7px 20px calc(9px + env(safe-area-inset-bottom)); }
+    .hair-progress__inner { grid-template-columns: minmax(0, 1fr) 42px; gap: 20px; }
+    .hair-progress__intro { display: none; }
+    .hair-progress__strands { height: 30px; }
+    .hair-progress__stages { font-size: 8px; letter-spacing: 0.12em; }
+    .hair-progress__value { font-size: 18px; }
+  }
+
   /* ---------- Liquid Glass: corpo translúcido + borda de luz + reflexo que segue o ponteiro */
   .glass {
     position: relative;
@@ -202,6 +310,17 @@
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--c-muted);
+  }
+  .product-image-stage {
+    background: radial-gradient(ellipse at 50% 70%, var(--product-stage), transparent 72%);
+  }
+  .product-image-stage--bottle {
+    background:
+      radial-gradient(ellipse 70% 24% at 50% 8%, var(--product-cap-glow), transparent 90%),
+      radial-gradient(ellipse at 50% 70%, var(--product-stage), transparent 72%);
+  }
+  .product-image-shadow {
+    filter: drop-shadow(0 12px 20px var(--product-shadow)) drop-shadow(0 0 28px var(--product-shadow-soft));
   }
 }
 

@@ -14,8 +14,17 @@ export function HeroVideo() {
   useEffect(() => {
     const v = videoRef.current
     if (!v || !ready) return
-    if (reduce) v.pause()
-    else v.play().catch(() => {})
+    if (reduce) {
+      v.pause()
+      return
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) v.play().catch(() => {})
+      else v.pause()
+    }, { threshold: 0.01 })
+    observer.observe(v)
+    return () => observer.disconnect()
   }, [ready, reduce])
 
   return (
@@ -31,7 +40,7 @@ export function HeroVideo() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         onLoadedData={() => setReady(true)}
         aria-label="Vídeo de resultado do salão Cabeloliso.com"
         className={`absolute inset-0 size-full scale-[1.04] object-cover object-[50%_28%] transition-[opacity,transform] duration-[1200ms,2400ms] ease-(--ease-out-soft) group-hover:scale-100 ${ready ? 'opacity-100' : 'opacity-0'}`}

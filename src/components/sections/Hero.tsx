@@ -50,9 +50,6 @@ export function Hero() {
       <Reveal delay={2} play={ready} as="figure" className="relative">
         <HeroVideo />
         <InstagramProof className="absolute bottom-4 left-3 lg:bottom-3.5 lg:-left-9" />
-        <figcaption className="absolute top-7 -right-3.5 hidden text-[10px] font-medium tracking-[0.36em] text-muted uppercase [writing-mode:vertical-rl] lg:block">
-          {hero.caption}
-        </figcaption>
       </Reveal>
       </motion.div>
 

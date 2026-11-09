@@ -25,11 +25,12 @@ src/
   hooks/                   → tema, contagem de seguidores, seção ativa, reflexo do vidro
   components/
     layout/                → Header (menu flutuante + menu mobile), Footer
-    sections/              → Hero, Method, Results, Expert, Courses, Contact
-    features/              → InstagramProof, BeforeAfterSlider, VideoCard, HeroVideo, WavesBackground
+    sections/              → Hero, Method, Results, Expert, Products, Gallery, Team, FAQ, Courses, Contact
+    features/              → InstagramProof, BeforeAfterSlider, VideoCard, HeroVideo, StoryModal, WavesBackground, HairStrands, ProgressHair
+    motion/                → rolagem, entrada, parallax, faixas e progresso
     ui/                    → Button, ChromeLogo, Reveal, SectionHeading, ThemeToggle, ícones
 public/
-  images/                  → logo original, fotos do salão, antes/depois, Renildo
+  images/                  → logo, fotos do salão, antes/depois, Renildo e produtos Hot Turbo
   videos/hero-cabeloliso.mp4
 ```
 
@@ -63,7 +64,9 @@ só dentro de `.glass-photo` (véu de 62%) ou selo `bg-black/65`.
 
 Em `src/components/motion/`:
 - `SmoothScroll` — rolagem suave (Lenis) sincronizada com o Motion; desligada com movimento reduzido.
-- `ScrollProgress` — fio prateado de progresso no topo.
+- `ScrollProgress` — barra inferior “Fio a fio”: uma mecha passa de cachos a ondas e a fios lisos conforme a leitura chega ao rodapé. Mostra o percentual real de rolagem e adapta-se ao celular.
+- `ProgressHair` — desenho próprio da barra, com cinco fios em curvas Bézier, pontas afiladas e espessura estável. A mecha ocupa mais largura no desktop e no tablet.
+- `HairStrands` / `WavesBackground` — mechas em SVG nas laterais, sincronizadas com a mesma rolagem da barra. Prata no escuro, grafite no claro; o centro fica livre para leitura. Sem animação contínua quando a página está parada.
 - `WordReveal` — títulos surgem palavra por palavra (usado em todos os `SectionHeading` e no hero).
 - `ParallaxImage` — fotos entram com "cortina" (clip-path) e se deslocam levemente na rolagem.
 - `Marquee` — faixa de texto que acelera e inverte com a rolagem, entre seções.
@@ -78,5 +81,5 @@ O hero também se afasta (sobe, encolhe e esmaece) ao rolar. Espaço entre seç�
 ## Comportamentos
 
 - Tema claro/escuro com o botão de sol/lua; a escolha fica salva no navegador. O padrão é o escuro.
-- `prefers-reduced-motion`: sem animações de entrada, ondas paradas, vídeo no primeiro quadro, contador direto no valor final.
+- `prefers-reduced-motion`: sem animações de entrada, mechas estáticas, vídeo no primeiro quadro, contador direto no valor final. O percentual de leitura continua disponível na barra.
 - Vídeos de depoimento só carregam o player do YouTube ao clicar.

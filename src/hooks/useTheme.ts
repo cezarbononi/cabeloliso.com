@@ -21,14 +21,3 @@ export function useTheme() {
   const toggle = useCallback(() => setTheme((t) => (t === 'dark' ? 'light' : 'dark')), [])
   return { theme, toggle }
 }
-
-/** Observa o tema atual a partir do atributo data-theme (útil para canvas e componentes sem acesso ao estado). */
-export function useThemeValue() {
-  const [theme, setTheme] = useState<Theme>(readTheme)
-  useEffect(() => {
-    const mo = new MutationObserver(() => setTheme(readTheme()))
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    return () => mo.disconnect()
-  }, [])
-  return theme
-}

@@ -1,0 +1,15 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        {
+            "source": "/valores",
+            "destination": "https://www.cabeloliso.com/#especialista",
+            "permanent": true
+        },
+        {
+            "source": "/onde-estamos",
+            "destination": "https://www.cabeloliso.com/#contato",
+            "permanent": true
+        }
+    ]
+}

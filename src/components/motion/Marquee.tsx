@@ -34,7 +34,7 @@ export function Marquee({ items, baseVelocity = -2.2 }: Props) {
           <div key={k} className="flex gap-10">
             {row.map((t, i) => (
               <span key={`${k}-${i}`} className="flex items-center gap-10 font-display text-[clamp(28px,4.4vw,64px)] leading-none font-bold tracking-[-0.03em]">
-                <span className={i % 2 ? 'text-transparent [-webkit-text-stroke:1px_color-mix(in_srgb,var(--c-fg)_45%,transparent)]' : 'chrome-text'}>{t}</span>
+                <span className={i % 2 ? 'text-transparent [-webkit-text-stroke:1.25px_var(--c-accent)]' : 'chrome-text'}>{t}</span>
                 <span className="size-2 rounded-full bg-accent" />
               </span>
             ))}

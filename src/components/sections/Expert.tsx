@@ -46,7 +46,7 @@ export function Expert() {
         </Reveal>
         <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-6">
           <p className="font-display text-[clamp(20px,2vw,26px)] font-semibold tracking-[-0.02em] text-accent">{expert.signature}</p>
-          <button type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" className="btn btn-metal cursor-pointer">
+          <button type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" className="btn cursor-pointer">
             <BookOpen className="size-4" strokeWidth={1.6} aria-hidden />
             {story.button}
           </button>

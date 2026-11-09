@@ -53,7 +53,7 @@ export function Contact() {
           </ul>
           <div className="mt-auto flex flex-wrap gap-2.5 pt-9">
             <Button href={address.directions}>Como chegar</Button>
-            <Button href={business.links.whatsapp} variant="glass">
+            <Button href={business.links.whatsapp}>
               WhatsApp
             </Button>
           </div>
@@ -80,7 +80,7 @@ export function Contact() {
           </h2>
         </Reveal>
         <Reveal delay={1}>
-          <p className="mx-auto mt-6 max-w-[46ch] text-[17px] text-text/72">{contact.finalLead}</p>
+          <p className="mx-auto mt-6 max-w-none text-[17px] text-text/72">{contact.finalLead}</p>
         </Reveal>
         <Reveal delay={2} className="mt-10">
           <Button href={business.links.booking} size="lg" arrow>

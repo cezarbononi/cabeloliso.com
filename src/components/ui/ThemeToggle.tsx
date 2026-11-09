@@ -11,7 +11,7 @@ export function ThemeToggle({ theme, onToggle, className = '' }: Props) {
       type="button"
       onClick={onToggle}
       aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}
-      className={`grid size-10 cursor-pointer place-items-center rounded-full text-fg ring-1 ring-fg/20 transition-colors duration-300 hover:bg-fg/8 ${className}`}
+      className={`button-control size-10 cursor-pointer ${className}`}
     >
       <Icon className="size-[18px]" strokeWidth={1.5} />
     </button>

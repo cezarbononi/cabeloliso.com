@@ -27,7 +27,7 @@ export function ScrollStatement({ text, eyebrow }: Props) {
 }
 
 function Word({ children, progress, range, still }: { children: string; progress: MotionValue<number>; range: [number, number]; still: boolean }) {
-  const opacity = useTransform(progress, range, [0.14, 1])
+  const opacity = useTransform(progress, range, [0.55, 1])
   return (
     <motion.span style={still ? undefined : { opacity }} className="mr-[0.24em] inline-block">
       {children}

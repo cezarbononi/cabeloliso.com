@@ -7,6 +7,7 @@ type Props = {
   title: ReactNode
   accent?: ReactNode
   lead?: ReactNode
+  leadClassName?: string
   align?: 'left' | 'center'
   className?: string
   /** título e destaque na mesma linha (sem quebra) */
@@ -14,7 +15,7 @@ type Props = {
 }
 
 /** Cabeçalho editorial: rótulo, título em Syne com a segunda linha cromada e texto de apoio. */
-export function SectionHeading({ eyebrow, title, accent, lead, align = 'left', className = '', inline = false }: Props) {
+export function SectionHeading({ eyebrow, title, accent, lead, leadClassName = 'max-w-[46ch]', align = 'left', className = '', inline = false }: Props) {
   const center = align === 'center'
   return (
     <header className={`${center ? 'text-center' : ''} ${className}`}>
@@ -32,7 +33,7 @@ export function SectionHeading({ eyebrow, title, accent, lead, align = 'left', c
       </h2>
       {lead && (
         <Reveal delay={2}>
-          <p className={`mt-6 max-w-[46ch] text-[17px] text-text/75 ${center ? 'mx-auto' : ''}`}>{lead}</p>
+          <p className={`mt-6 ${leadClassName} text-[17px] text-text/75 ${center ? 'mx-auto' : ''}`}>{lead}</p>
         </Reveal>
       )}
     </header>

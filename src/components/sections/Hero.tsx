@@ -40,7 +40,7 @@ export function Hero() {
           <Button href={business.links.booking} arrow>
             Agendar avaliação
           </Button>
-          <Button href="#metodo" variant="glass">
+          <Button href="#metodo">
             Conheça o método
           </Button>
         </Reveal>
@@ -49,7 +49,7 @@ export function Hero() {
       <motion.div style={exit} className="relative -order-1 w-[86%] justify-self-center lg:order-none lg:w-[min(100%,440px,52svh)]">
       <Reveal delay={2} play={ready} as="figure" className="relative">
         <HeroVideo />
-        <InstagramProof className="absolute bottom-4 left-3 lg:bottom-3.5 lg:-left-9" />
+        <InstagramProof className="absolute bottom-4 left-1/2 w-[250px] max-w-full -translate-x-1/2 lg:bottom-3.5" />
       </Reveal>
       </motion.div>
 

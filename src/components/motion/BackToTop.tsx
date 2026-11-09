@@ -25,7 +25,7 @@ export function BackToTop() {
           transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.94 }}
-          className="glass fixed right-4 bottom-[calc(88px+env(safe-area-inset-bottom))] z-30 grid size-13 cursor-pointer place-items-center rounded-full text-fg md:right-6 md:bottom-[calc(100px+env(safe-area-inset-bottom))]"
+          className="button-control fixed right-4 bottom-[calc(88px+env(safe-area-inset-bottom))] z-30 size-13 cursor-pointer md:right-6 md:bottom-[calc(100px+env(safe-area-inset-bottom))]"
         >
           <svg viewBox="0 0 52 52" className="absolute! inset-0 size-full -rotate-90" aria-hidden>
             <circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" strokeOpacity="0.12" strokeWidth="1.5" />

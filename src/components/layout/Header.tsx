@@ -62,7 +62,7 @@ export function Header({ theme, onToggleTheme }: Props) {
             href={business.links.booking}
             target="_blank"
             rel="noopener"
-            className="btn btn-metal hidden min-h-11! px-5! sm:inline-flex"
+            className="btn hidden min-h-11! px-5! sm:inline-flex"
           >
             Agendar
           </a>
@@ -72,10 +72,10 @@ export function Header({ theme, onToggleTheme }: Props) {
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-            className="grid size-11 cursor-pointer place-content-center gap-1.5 min-[1100px]:hidden"
+            className="button-control size-11 cursor-pointer gap-1.5 min-[1100px]:hidden"
           >
-            <span className={`h-px w-[18px] bg-fg transition-transform duration-500 ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
-            <span className={`h-px w-[18px] bg-fg transition-transform duration-500 ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
+            <span className={`h-px w-[18px] bg-current transition-transform duration-500 ${open ? 'translate-y-[3.5px] rotate-45' : ''}`} />
+            <span className={`h-px w-[18px] bg-current transition-transform duration-500 ${open ? '-translate-y-[3.5px] -rotate-45' : ''}`} />
           </button>
         </div>
       </header>

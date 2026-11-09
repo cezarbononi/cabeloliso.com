@@ -13,6 +13,7 @@ export function Courses() {
         title={courses.title}
         accent={courses.titleAccent}
         lead={courses.lead}
+        leadClassName="max-w-none"
         align="center"
         className="mx-auto max-w-[1320px] px-5 md:px-[clamp(20px,5vw,72px)]"
       />
@@ -46,7 +47,7 @@ export function Courses() {
                   <p className="text-text/66">{c.text}</p>
                 )}
                 <div className="mt-auto pt-8">
-                  <Button href={c.href} variant={open ? 'metal' : 'glass'}>
+                  <Button href={c.href}>
                     {c.cta}
                   </Button>
                 </div>

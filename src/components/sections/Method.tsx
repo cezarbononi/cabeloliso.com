@@ -13,10 +13,10 @@ export function Method() {
       <div className="grid gap-16 lg:grid-cols-[5fr_7fr] lg:gap-24">
         {/* coluna fixa durante a rolagem; fica contida neste grid e para antes da foto de evolução */}
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <SectionHeading eyebrow={method.eyebrow} title={method.title} accent={method.titleAccent} lead={method.lead} />
+          <SectionHeading eyebrow={method.eyebrow} title={method.title} accent={method.titleAccent} lead={method.lead} leadClassName="max-w-none" />
           <ParallaxImage src={media.salon} alt="Interior do salão Cabeloliso.com com espelhos e cadeiras pretas" className="mt-10 aspect-[4/3] rounded-[18px]" />
           <Reveal className="mt-8">
-            <Button href={business.links.bookingMethod} variant="glass">
+            <Button href={business.links.bookingMethod}>
               Agendar minha avaliação
             </Button>
           </Reveal>

@@ -27,7 +27,7 @@
   --glass-edge: rgb(255 255 255 / 0.4);
   --chrome: linear-gradient(115deg, #5e5e5e 0%, #f4f4f4 16%, #8c8c8c 30%, #ffffff 44%, #6f6f6f 58%, #e8e8e8 74%, #9a9a9a 88%, #d9d9d9 100%);
   --chrome-text: linear-gradient(100deg, #8d8d8d 0%, #ffffff 30%, #9c9c9c 52%, #f2f2f2 72%, #a8a8a8 100%);
-  --btn-metal: linear-gradient(180deg, #ffffff 0%, #e8e8e8 45%, #c0c0c0 100%);
+  --button-surface: #ffffff;
 }
 
 [data-theme='light'] {
@@ -49,7 +49,7 @@
   --glass-edge: rgb(255 255 255 / 0.95);
   --chrome: linear-gradient(115deg, #000 0%, #4a4a4a 16%, #111 30%, #6a6a6a 44%, #1a1a1a 58%, #555 74%, #000 88%, #333 100%);
   --chrome-text: linear-gradient(100deg, #111 0%, #5a5a5a 30%, #202020 52%, #6a6a6a 72%, #2a2a2a 100%);
-  --btn-metal: linear-gradient(180deg, #3a3a3a 0%, #202020 45%, #000000 100%);
+  --button-surface: #000000;
 }
 
 @theme inline {
@@ -269,30 +269,41 @@
     gap: 10px;
     min-height: 52px;
     padding: 0 28px;
+    border: 1px solid var(--button-surface);
     border-radius: 999px;
+    background: var(--button-surface);
+    color: var(--c-bg);
     font: 600 12px/1 var(--font-sans);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     white-space: nowrap;
+    box-shadow: 0 14px 34px -14px color-mix(in srgb, var(--c-fg) 35%, transparent);
     transition: transform 0.5s var(--ease-glass), filter 0.4s, box-shadow 0.5s var(--ease-glass);
   }
   .btn:hover {
     transform: translateY(-1px);
+    filter: brightness(1.06);
   }
   .btn:active {
     transform: scale(0.97);
     transition-duration: 0.12s;
   }
-  .btn-metal {
-    background: var(--btn-metal);
+  .button-control {
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--button-surface);
+    border-radius: 9999px;
+    background: var(--button-surface);
     color: var(--c-bg);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55), inset 0 -1px 0 rgb(0 0 0 / 0.18), 0 14px 34px -14px color-mix(in srgb, var(--c-fg) 45%, transparent);
+    box-shadow: 0 10px 28px -14px color-mix(in srgb, var(--c-fg) 35%, transparent);
+    transition: transform 0.35s var(--ease-glass), filter 0.3s;
   }
-  .btn-metal:hover {
-    filter: brightness(1.06);
+  .button-control:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
   }
-  .btn-glass {
-    color: var(--c-fg);
+  .button-control:active {
+    transform: scale(0.96);
   }
 
   /* ---------- Números (estatísticas, etapas, seguidores): Inter Tight com algarismos de largura uniforme.

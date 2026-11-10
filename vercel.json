@@ -1,14 +1,49 @@
 {
-    "$schema": "https://openapi.vercel.sh/vercel.json",
+"$schema": "https://openapi.vercel.sh/vercel.json",
     "redirects": [
         {
             "source": "/valores",
-            "destination": "https://www.cabeloliso.com/#especialista",
+            "destination": "https://www.cabeloliso.com",
             "permanent": true
         },
         {
             "source": "/onde-estamos",
-            "destination": "https://www.cabeloliso.com/#contato",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/home",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/contato",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/blank",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/seja-um-habilitado",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/produtos",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/group/grupo-cabeloliso/discussion/5443f55f-c27c-442f-8e40-a26632c1d545",
+            "destination": "https://www.cabeloliso.com",
+            "permanent": true
+        },
+        {
+            "source": "/about-3",
+            "destination": "https://www.cabeloliso.com",
             "permanent": true
         }
     ]
